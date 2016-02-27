@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=x\ y
+comment0.target=int\ mcm(int,\ int)
+comment0.text=\n\ Calcula\ el\ m\u00EDnimo\ com\u00FAn\ m\u00FAltiplo\ de\ dos\ n\u00FAmeros\n\ \n\ @param\ \ x,\ y\ n\u00FAmeros\ enteros\n\ @return\ \ \ \ \ \ m\u00EDnimo\ com\u00FAn\ m\u00FAltiplo\ de\ x\ e\ y\n
+comment1.params=x\ y
+comment1.target=int\ mcd(int,\ int)
+comment1.text=\n\ Calcula\ el\ m\u00E1ximo\ com\u00FAn\ divisor\ de\ dos\ n\u00FAmeros\n\ \n\ @param\ \ x,\ y\ n\u00FAmeros\ enteros\n\ @return\ \ \ \ \ \ m\u00E1ximo\ com\u00FAn\ divisor\ de\ x\ e\ y\n
+numComments=2
