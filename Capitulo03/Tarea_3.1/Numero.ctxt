@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Numero()
+comment1.params=inicial
+comment1.target=Numero(int)
+comment2.params=
+comment2.target=boolean\ esPrimo()
+comment2.text=\n\ Comprueba\ si\ un\ n\u00FAmero\ entero\ positivo\ es\ primo\ o\ no.\n\ Un\ n\u00FAmero\ es\ primo\ cuando\ \u00FAnicamente\ es\ divisible\ entre\n\ \u00E9l\ mismo\ y\ la\ unidad.\n\ \n\ @return\ \ <code>true</code>\ si\ el\ n\u00FAmero\ es\ primo\n\ @return\ \ <code>false</code>\ en\ caso\ contrario\n
+numComments=3
