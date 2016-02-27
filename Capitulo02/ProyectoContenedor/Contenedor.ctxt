@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Contenedor()
+comment0.text=Constructor\ b\u00E1sico
+comment1.params=nombre\ capacidad\ lleno\ contenido
+comment1.target=Contenedor(java.lang.String,\ int,\ int,\ java.lang.String)
+comment1.text=\ Constructor\ general\ con\ argumentos\ para\ \nla\ inicializaci\u00F3n\ del\ objeto
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment2.text=\ Conversor\ por\ defecto\ de\ la\ estructura\ \n\ de\ un\ objeto\ de\ tipo\ Contenedor\ a\ formato\ \nString\ para\ su\ impresi\u00F3n
+comment3.params=
+comment3.target=boolean\ vacioContenedor()
+comment3.text=\ Funci\u00F3n\ l\u00F3gica\ que\ indica\ \ si\ el\ \nContenedor\ est\u00E1\ o\ no\ vac\u00EDo
+comment4.params=volumen
+comment4.target=int\ llenarContenedor(int)
+comment5.params=
+comment5.target=int\ llenarContenedor()
+comment6.params=volumen
+comment6.target=int\ vaciarContenedor(int)
+comment7.params=
+comment7.target=int\ vaciarContenedor()
+numComments=8
