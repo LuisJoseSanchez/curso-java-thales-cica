@@ -17,7 +17,7 @@
  * 2 * 10 = 20
  * 
  * @author Luis José Sánchez
- * @version 28 de febrero de 2016
+ * @version 4 de marzo de 2016
  */
 public class Tabla {
 
@@ -26,7 +26,7 @@ public class Tabla {
     int n = Terminal.leeEntero("\nTabla de multiplicar\nIndique un número:");
   
     for (int i = 0; i <= 10; i++) {
-      Terminal.imprimeMensaje(n + " * " + i + " = " + n * i + "\n");
+      System.out.println(n + " * " + i + " = " + n * i);
     }
   }
 }
