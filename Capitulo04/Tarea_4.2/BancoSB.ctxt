@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment1.params=
+comment1.target=void\ gestionTransferencia()
+comment1.text=\n\ Realiza\ una\ transferencia\ entre\ dos\ cuentas.\n\ Se\ comprueba\ que\ ambas\ cuentas\ existen\ y\ que\n\ en\ la\ cuenta\ origen\ hay\ una\ cantidad\ suficiente\n\ como\ para\ hacer\ la\ transferencia.\n\ \n\ @author\ Luis\ Jos\u00E9\ S\u00E1nchez\n
+comment2.params=
+comment2.target=void\ gestionImposicion()
+comment3.params=
+comment3.target=void\ gestionReintegro()
+comment4.params=
+comment4.target=void\ creaCuenta()
+numComments=5

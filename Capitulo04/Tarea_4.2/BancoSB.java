@@ -31,7 +31,7 @@ class BancoSB {
           operacion = Terminal.leeEntero
       ("Indique una operacion: ");
          } while ((operacion < 0) ||
-      (operacion > 4));
+      (operacion > 5));
          if (operacion == 1)
             gestionImposicion();
          else if (operacion == 2)
@@ -55,11 +55,10 @@ class BancoSB {
    */
   private static void gestionTransferencia() {
     System.out.println("TRANSFERENCIA:");
-    int codigoOrigen;
 
     // Pide la cuenta origen ///////////////////////
     System.out.println("CUENTA ORIGEN?:");
-    codigoOrigen = Terminal.leeEntero("Indique un código: ");
+    int codigoOrigen = Terminal.leeEntero("Indique un código: ");
     if (codigoOrigen == 0)
       return;
 
@@ -71,7 +70,7 @@ class BancoSB {
 
     // Pide la cuenta destino //////////////////////
     System.out.println("CUENTA DESTINO?:");
-    codigoDestino = Terminal.leeEntero("Indique un código: ");
+    int codigoDestino = Terminal.leeEntero("Indique un código: ");
     if (codigoDestino == 0)
       return;
 
@@ -87,7 +86,7 @@ class BancoSB {
     // Retira la cantidad de la cuenta origen
     if (!cuentaOrigen.Reintegro(cantidad)) {
       System.out.println("Operación finalizada erróneamente");
-      return
+      return;
     }
     
     // Ingresa la cantidad en la cuenta destino
