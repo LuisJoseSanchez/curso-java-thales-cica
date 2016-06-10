@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Diccionario {
   private int identificador;
   private String descripcion;
-  private static ArrayList<Termino> terminos = new ArrayList<>();
+  private ArrayList<Termino> terminos = new ArrayList<>();
   private static int numeroDeDiccionarios = 0;
 
   public Diccionario(String descripcion) {
@@ -13,27 +13,10 @@ public class Diccionario {
     this.descripcion = descripcion;
   }
   
-  public void agregaTermino(Termino t) {
-    terminos.add(t);
+  public ArrayList<Termino> getTerminos() {
+    return terminos;
   }
   
-  public void borraTermino(Termino t) {
-    /*int posicion = -1;
-          
-    for (int i = 0; i < terminos.size(); i++) {
-      if (terminos.get(i).getIdentificador() == t.getIdentificador()) {
-        posicion = i;
-      }
-    }
-          
-    if (posicion == -1) {
-      System.out.println("No se ha encontrado ningún diccionario con ese código.");
-    } else {
-      terminos.remove(posicion);
-      System.out.println("Diccionario borrado correctamente.");
-    }*/
-  }
-
   public int getIdentificador() {
     return identificador;
   }
@@ -44,7 +27,76 @@ public class Diccionario {
 
   @Override
   public String toString() {
-    return "Identificador: " + identificador + ", Descripción: " + descripcion + "\n";
+    return "Identificador: " + identificador + ", Descripción: " + descripcion;
+  }
+
+  /**
+   * Dos diccionarios son iguales si tienen el mismo identificador
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final Diccionario other = (Diccionario) obj;
+    if (this.identificador != other.identificador) {
+      return false;
+    }
+    return true;
   }
   
+  /**
+  * Añade un término al diccionario
+  * 
+  * @param t término que se añade
+  */
+  public void agregaTermino(Termino t) {
+    terminos.add(t);
+  }
+  
+  /**
+   * Elimina un término del diccionario
+   * 
+   * @param t término a borrar
+   */
+  public void borraTermino(Termino t) {
+    terminos.remove(new Termino(t.getPalabra(), "", ""));
+  }
+  
+  /**
+   * Elimina un término del diccionario cuya palabra se pasa como parámetro
+   * 
+   * @param p palabra que contiene el término a borrar
+   */
+  public void borraTerminoPorPalabra(String p) {
+    terminos.remove(new Termino(p, "", ""));
+  }
+  
+  /**
+   * Dice si un término está incluido o no en el diccionario
+   * 
+   * @param t término que se busca dentro del diccionario
+   * @return <code>true</code> si un término concreto está incluido en el diccionario y
+   *         <code>false</code> en caso contrario
+   */
+  public boolean contieneTermino(Termino t) {
+    return terminos.contains(new Termino(t.getPalabra(), "", ""));
+  }
+
+  /**
+  * Dice si una palabra está incluida o no en el diccionario
+  * 
+  * @param p palabra que se busca dentro del diccionario
+  * @return <code>true</code> si la palabra existe en el diccionario y
+  *         <code>false</code> en caso contrario
+  */
+  public boolean contienePalabra(String p) {
+    return terminos.contains(new Termino(p, "", ""));
+  }
 }
