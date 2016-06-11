@@ -1,4 +1,11 @@
-package tarea7;
+/**
+ * Tarea 7
+ * 
+ * Definición de la clase Termino.
+ * Un término tiene consta de una palabra, una raiz y una definición.
+ * 
+ * Luis José Sánchez
+ */
 
 import java.util.Objects;
 

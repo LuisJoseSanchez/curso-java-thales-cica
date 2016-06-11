@@ -1,5 +1,13 @@
-package tarea7;
-
+/**
+ * Tarea 7
+ * 
+ * Definición de la clase Diccionario.
+ * Un diccionario tiene un identificador, una lista de términos y,
+ * opcionalmente, una descripción.
+ * 
+ * Luis José Sánchez
+ */
+ 
 import java.util.ArrayList;
 
 public class Diccionario {

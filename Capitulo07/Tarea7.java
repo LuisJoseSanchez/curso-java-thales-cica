@@ -1,7 +1,16 @@
-/*
- * Tarea 7. Gestión de diccionarios
+/**
+ * Tarea 7
+ * 
+ * Programa principal o punto de inicio de la aplicación.
+ * Se crea un léxico compuesto por diccionarios (se incluyen dos diccionarios
+ * de prueba).
+ * El programa permite crear, borrar y listar diccionarios, así como gestionar
+ * los términos de un diccionario concreto.
+ * Se pueden buscar palabras (se buscan en todos los diccionarios) tanto por
+ * coincidencia exacta como por coincidencia por inclusión.
+ * 
+ * Luis José Sánchez
  */
-package tarea7;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -27,58 +36,35 @@ public class Tarea7 {
     do {
       System.out.println("\n\nGESTIÓN DE LÉXICO\n=================");
       System.out.println("1. Crear diccionario");
-      System.out.println("2. Gestionar diccionarios");
+      System.out.println("2. Gestionar diccionario");
       System.out.println("3. Listado de diccionarios");
       System.out.println("4. Borrar diccionario");
-      System.out.println("5. Salir");
+      System.out.println("5. Buscar palabra exacta");
+      System.out.println("6. Buscar palabra por inclusión");
+      System.out.println("7. Salir");
       System.out.print("Introduzca una opción: ");
       opcion = Integer.parseInt(s.nextLine());
       
       switch (opcion) {
-
         case 1:
           creaDiccionario();
-          break;
-          
-        case 2: // Gestionar diccionarios //////////////////////////////////////////////////////////
-          System.out.println("\n\nGESTIONAR DICCIONARIOS\n======================");
-          
-          listaDiccionarios(); // Se listan primero los diccionarios existentes
-          
-          System.out.print("\nPor favor, introduzca el identificador del diccionario que quiere gestionar: ");
-          int identificador = Integer.parseInt(s.nextLine());
-
-          Diccionario diccionarioGestionado = (Diccionario) null;
-          
-          boolean existeDiccionario = false;
-          
-          for (Diccionario d : lexico) {
-            if (d.getIdentificador() == identificador) {
-              diccionarioGestionado = d;
-              existeDiccionario = true;
-            }
-          }
-          
-          if (!existeDiccionario) {
-            System.out.println("No se ha encontrado ningún diccionario con ese identificador.");
-          } else {
-            (new GestionDiccionario(diccionarioGestionado)).iniciaGestionDiccionario();
-          }
-          
-          break;
-        
+          break;        
+        case 2:
+          gestionaDiccionario();
+          break;  
         case 3:
           listaDiccionarios("\n\nLISTADO DE DICCIONARIOS\n=======================");
-          break;
-                    
-        case 4: // Borrar diccionario
+          break;         
+        case 4:
           borraDiccionario();
+        case 5:
+          buscaPalabraExacta();
+        case 6:
+          buscaPalabraPorInclusion();
           break;
-              
         default:
-
       } // switch    
-    } while (opcion != 5);
+    } while (opcion != 7);
   } // main ///////////////////////////////////////////////////////////////////
   
   
@@ -114,6 +100,35 @@ public class Tarea7 {
     System.out.print("Descripción: ");
     String descripcion = s.nextLine();
     lexico.add(new Diccionario(descripcion));
+  }
+
+  /**
+   * Gestiona un diccionario cuyo código se pide por teclado.
+   */
+  public static void gestionaDiccionario() {
+    System.out.println("\n\nGESTIONAR DICCIONARIOS\n======================");
+
+    listaDiccionarios(); // Se listan primero los diccionarios existentes
+
+    System.out.print("\nPor favor, introduzca el identificador del diccionario que quiere gestionar: ");
+    int identificador = Integer.parseInt(s.nextLine());
+
+    Diccionario diccionarioGestionado = (Diccionario) null;
+
+    boolean existeDiccionario = false;
+
+    for (Diccionario d : lexico) {
+      if (d.getIdentificador() == identificador) {
+        diccionarioGestionado = d;
+        existeDiccionario = true;
+      }
+    }
+
+    if (!existeDiccionario) {
+      System.out.println("No se ha encontrado ningún diccionario con ese identificador.");
+    } else {
+      (new GestionDiccionario(diccionarioGestionado)).iniciaGestionDiccionario();
+    }
   }
   
   /**
@@ -161,6 +176,50 @@ public class Tarea7 {
       System.out.println("Diccionario borrado correctamente.");
     }
   }
-  
-          
+
+  /**
+   * Busca en todos los diccionarios una palabra que coincide exactamente con la que introduce el
+   * usuario.
+   */
+  public static void buscaPalabraExacta() {
+    System.out.println("\n\nBUSCAR PALABRA EXACTA\n=====================");
+    System.out.print("\nPor favor, introduzca una palabra (se buscará en todos los diccionarios): ");
+    String palabra = s.nextLine();
+    
+    int cuentaPalabras = 0;
+    
+    for (Diccionario d : lexico) {
+      for (Termino t : d.getTerminos()) {
+        if (t.getPalabra().equalsIgnoreCase(palabra)) {
+          System.out.println(t);
+          cuentaPalabras++;
+        }
+      }
+    }
+    
+    System.out.println("Encontradas " + cuentaPalabras + " palabras.");
+  }
+
+  /**
+   * Busca en todos los diccionarios una palabra que coincide parcialmente con la que introduce el
+   * usuario. Por ejemplo, la búsqueda de "car" encaja con "caras" y "cars".
+   */
+  public static void buscaPalabraPorInclusion() {
+    System.out.println("\n\nBUSCAR PALABRA POR INCLUSIÓN\n============================");
+    System.out.print("\nPor favor, introduzca una palabra (se buscará en todos los diccionarios): ");
+    String palabra = s.nextLine();
+    
+    int cuentaPalabras = 0;
+    
+    for (Diccionario d : lexico) {
+      for (Termino t : d.getTerminos()) {
+        if (t.getPalabra().toLowerCase().contains(palabra.toLowerCase())) {
+          System.out.println(t);
+          cuentaPalabras++;
+        }
+      }
+    }
+    
+    System.out.println("Encontradas " + cuentaPalabras + " palabras.");    
+  }
 }

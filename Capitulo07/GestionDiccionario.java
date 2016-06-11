@@ -1,19 +1,24 @@
-/*
- *
+/**
+ * Tarea 7
+ * 
+ * Utilidades de gestión de la clase Diccionario.
+ * Proporciona los métodos necesarios para crear, borrar, consultar y listar
+ * los términos de un diccionario.
+ * 
+ * Luis José Sánchez
  */
-package tarea7;
 
 import java.util.Scanner;
 
 public class GestionDiccionario {
   
-  static Diccionario diccionario;
+  Diccionario diccionario;
 
   public GestionDiccionario(Diccionario d) {
     diccionario = d;
   }
   
-  public static void iniciaGestionDiccionario() {
+  public void iniciaGestionDiccionario() {
     int opcion;
     
     do {
@@ -51,7 +56,7 @@ public class GestionDiccionario {
     } while (opcion != 5);
   } // iniciaGestionDiccionario
     
-  private static void agregaTermino() {
+  private void agregaTermino() {
     System.out.println("\nAÑADIR UN TÉRMINO\n=================");
     Scanner s = new Scanner(System.in);
     System.out.print("Palabra: ");
@@ -67,7 +72,7 @@ public class GestionDiccionario {
     }
   }
   
-  private static void borraTermino() {
+  private void borraTermino() {
     System.out.println("\nBORRAR UN TÉRMINO\n=================");
     Scanner s = new Scanner(System.in);
     System.out.print("Palabra del término que quiere borrar: ");
@@ -80,7 +85,7 @@ public class GestionDiccionario {
     }
   }
   
-  private static void listaTerminos() {
+  private void listaTerminos() {
     System.out.println();
     System.out.println(diccionario);
     for (Termino t : diccionario.getTerminos()) {
@@ -88,7 +93,7 @@ public class GestionDiccionario {
     }
   }
   
-  private static void consultaTermino() {
+  private void consultaTermino() {
     System.out.println("\nCONSULTAR UN TÉRMINO\n====================");
     Scanner s = new Scanner(System.in);
     System.out.print("Introduzca la palabra que quiere consultar: ");
